@@ -13,6 +13,8 @@ if path.isfile(local_env_file):
 
 SECRET_KEY = getenv('SECRET_KEY', 'gmwoaHeDhVDo2D3cCVpRtaQ6GwFyip11PUXTG-iwJMkpNlmB0Mk')
 
+CSRF_TRUSTED_ORIGIONS = ["http://localhost:8080"]
+
 DEBUG = getenv('DEBUG')
 
 SITE_NAME = getenv('SITE_NAME')
