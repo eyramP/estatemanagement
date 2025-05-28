@@ -50,4 +50,4 @@ inspect_network:
 	docker network inspect ebanking_local_nw
 
 connect_to_db:
-	docker compose -f local.yml exec postgres psql --username=eyram --dbname=ebank
+	docker compose -f local.yml exec postgres psql --username=eyram --dbname=realestate

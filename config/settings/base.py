@@ -1,7 +1,6 @@
 from pathlib import Path
 from dotenv import load_dotenv
 from os import getenv, path
-from loguru import logger
 from datetime import timedelta, date
 import cloudinary
 
@@ -33,7 +32,7 @@ THIRD_PARTY_APPS = [
     'rest_framework',
     'django_countries',
     'phonenumber_field',
-    'drf_spectacular',
+    # 'drf_spectacular',
     'djoser',
     'social_django',
     'cloudinary',
@@ -146,8 +145,9 @@ SITE_ID = 1
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = str(BASE_DIR / 'staticfiles')
+STATIC_URL = "/static/"
+
+STATIC_ROOT = str(BASE_DIR / "staticfiles")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -161,10 +161,10 @@ STATIC_ROOT = str(BASE_DIR / 'staticfiles')
 # DEFAULT_PHONE_NUMBER = "+233546785676"
 
 REST_FRAMEWORK = {
-    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
-    "DEFAULT_AUTHENTICATION_CLASSES": [
-        "core_apps.common.cookie_auth.CookieAuthentication",
-    ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    # "DEFAULT_AUTHENTICATION_CLASSES": [
+    #     "core_apps.common.cookie_auth.CookieAuthentication",
+    # ],
     "DEFAULT_PERMISSION_CLASSES":  [
         "rest_framework.permissions.IsAuthenticated",
     ],
@@ -208,16 +208,16 @@ DJOSER = {
     },
 }
 
-SPECTACULAR_SETTINGS = {
-    "TITLE": "Electronic Banking API",
-    "DESCRIPITON": "An API built for a banking system",
-    "VERSION": "1.0.0",
-    "SERVE_INCLUDE_SCHEMA": False,
-    "LICENSE": {
-        "name": "MIT License",
-        "url": "https://opensource.org/license/mit",
-    }
-}
+# SPECTACULAR_SETTINGS = {
+#     "TITLE": "Electronic Banking API",
+#     "DESCRIPITON": "An API built for a banking system",
+#     "VERSION": "1.0.0",
+#     "SERVE_INCLUDE_SCHEMA": False,
+#     "LICENSE": {
+#         "name": "MIT License",
+#         "url": "https://opensource.org/license/mit",
+#     }
+# }
 
 if USE_TZ:
     CELERY_TIMEZONE = TIME_ZONE
@@ -252,3 +252,5 @@ COOKIE_HTTPONLY = True
 COOKIE_SECURE = getenv("COOKIE_SECURE", "True") == "True"
 
 TAGGIT_CASE_INSENSITIVE = True
+
+AUTH_USER_MODEL = "users.User"
