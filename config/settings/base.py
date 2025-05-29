@@ -32,7 +32,8 @@ THIRD_PARTY_APPS = [
     'rest_framework',
     'django_countries',
     'phonenumber_field',
-    # 'drf_spectacular',
+    'drf_spectacular',
+    'drf_yasg',
     'djoser',
     'social_django',
     'cloudinary',
@@ -228,8 +229,8 @@ CELERY_BROKER_URL = getenv('CELERY_BROKER_URL')
 CELERY_RESULT_BACKEND = getenv('CELERY_RESULT_BACKEND')
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
-CELERY_TASK_CELERIALIZER = 'json'
-CELERY_RESULT_BACKEND_MAX_RESULT = 10
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_RESULT_BACKEND_MAX_RETRIES = 10
 CELERY_TASK_SEND_SENT_EVENT = True
 CELERY_RESULT_EXTENDED = True
 CELERY_RESULT_BACKEND_ALWAYS_RETRY = True
