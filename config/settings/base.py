@@ -214,6 +214,11 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
 ]
 SOCIAL_AUTH_GOOGLE_OAUTH2_EXTRA_DATA = ["first_name", "last_name"]
 
+AUTHENTICATION_BACKENDS = [
+    "social_core.backends.google.GoogleOAuth2",
+    "django.contrib.auth.backends.ModelBackend",
+]
+
 # SPECTACULAR_SETTINGS = {
 #     "TITLE": "Electronic Banking API",
 #     "DESCRIPITON": "An API built for a banking system",

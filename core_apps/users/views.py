@@ -12,7 +12,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 logger = logging.getLogger(__name__)
 
 
-def set_auth_cookie(
+def set_auth_cookies(
     response: Response, access_token: str, refresh_token: Optional[str] = None
 ) -> None:
     access_token_lifetime = settings.SIMPLE_JWT["ACCESS_TOKEN_LIFETIME"].total_seconds()
@@ -47,7 +47,7 @@ class CustomTokenObtainPairView(TokenObtainPairView):
             refresh_token = token_res.data.get("refresh")
 
             if access_token and refresh_token:
-                set_auth_cookie(
+                set_auth_cookies(
                     token_res, access_token=access_token, refresh_token=refresh_token
                 )
 
@@ -78,7 +78,7 @@ class CustomTokenRefreshView(TokenRefreshView):
             refresh_token = refresh_res.data.get("refresh")
 
             if access_token and refresh_token:
-                set_auth_cookie(
+                set_auth_cookies(
                     refresh_res, access_token=access_token, refresh_token=refresh_token
                 )
 
@@ -99,27 +99,29 @@ class CustomTokenRefreshView(TokenRefreshView):
 
 class CustomProviderAuthView(ProviderAuthView):
     def post(self, request: Request, *args, **kwargs) -> Response:
-        provider_res = super().save(request, *args, **kwargs)
+        provider_res = super().post(request, *args, **kwargs)
 
         if provider_res.status_code == status.HTTP_201_CREATED:
             access_token = provider_res.data.get("access")
             refresh_token = provider_res.data.get("refresh")
 
             if access_token and refresh_token:
-                set_auth_cookie(
-                    provider_res, access_token=access_token, refresh_token=refresh_token
+                set_auth_cookies(
+                    provider_res,
+                    access_token=access_token,
+                    refresh_token=refresh_token,
                 )
 
                 provider_res.data.pop("access", None)
                 provider_res.data.pop("refresh", None)
 
-                provider_res.data["message"] = "You are logged in successfully"
+                provider_res.data["message"] = "You are logged in Successful."
             else:
                 provider_res.data["message"] = (
-                    "Access or refresh token not found in the provuder response"
+                    "Access or refresh token not found in provider response"
                 )
                 logger.error(
-                    "Access or refresh token not found in the provuder response data"
+                    "Access or refresh token not found in provider response data"
                 )
 
         return provider_res
