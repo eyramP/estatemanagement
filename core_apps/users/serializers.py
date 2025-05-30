@@ -14,4 +14,3 @@ class CreateUserSerializer(UserCreateSerializer):
             "last_name",
             "password",
         ]
-

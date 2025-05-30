@@ -22,6 +22,9 @@ logs_api:
 logs_flower:
 	docker compose -f local.yml logs flower
 
+logs_celery:
+	docker compose -f local.yml logs celeryworker
+
 ebanking_config:
 	docker compose -f local.yml config
 

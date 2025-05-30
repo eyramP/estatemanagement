@@ -44,6 +44,8 @@ urlpatterns = [
         name="redoc"
     ),
     path(settings.ADMIN_URL, admin.site.urls),
+    path("api/v1/auth/", include("djoser.urls")),
+    path("api/v1/auth/", include("core_apps.users.urls")),
 ]
 
 admin.site.site_header = "Real Estate Mgt Admin"
