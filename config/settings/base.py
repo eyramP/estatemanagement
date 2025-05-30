@@ -165,9 +165,9 @@ STATIC_ROOT = str(BASE_DIR / "staticfiles")
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
-    # "DEFAULT_AUTHENTICATION_CLASSES": [
-    #     "core_apps.common.cookie_auth.CookieAuthentication",
-    # ],
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "core_apps.common.cookie_auth.CookieAuthentication",
+    ],
     "DEFAULT_PERMISSION_CLASSES":  [
         "rest_framework.permissions.IsAuthenticated",
     ],
@@ -175,14 +175,14 @@ REST_FRAMEWORK = {
     "DEFAULT_FILTER_BACKENDS": [
         "django_filters.rest_framework.DjangoFilterBackend",
     ],
-    "PAGE-SOTE": 10,
+    "PAGE_SIZE": 10,
     "DEFAULT_THROTTLE_CLASSES": [
         "rest_framework.throttling.AnonRateThrottle",
         "rest_framework.throttling.UserRateThrottle",
     ],
     "DEFAULT_THROTTLE_RATES": {
-        "anon": "50/day",
-        "user": "100/day",
+        "anon": "200/day",
+        "user": "500/day",
     }
 }
 
@@ -198,7 +198,7 @@ SIMPLE_JWT = {
 
 DJOSER = {
     "USER_ID_FIELD": "id",
-    "LOGIN_FIELD": "email",  # <-- fixed spelling here
+    "LOGIN_FIELD": "email",
     "TOKEN_MODEL": None,
     "USER_CREATE_PASSWORD_RETYPE": True,
     "SEND_ACTIVATION_EMAIL": True,
@@ -206,10 +206,20 @@ DJOSER = {
     "PASSWORD_RESET_CONFIRM_RETYPE": True,
     "ACTIVATION_URL": "activate/{uid}/{token}",
     "PASSWORD_RESET_CONFIRM_URL": "password-reset/{uid}/{token}",
+    "SOCIAL_AUTH_ALLOWED_REDIRECT_URIS": getenv("REDIRECT_URIS", "").split(","),
     "SERIALIZERS": {
-        "user_create": "core_apps.user_auth.serializers.UserCreateSerializer",
+        "user_create": "core_apps.user_auth.serializers.CreateUserSerializer",
     },
 }
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = getenv("GOOGLE_CLIENT_ID")
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = getenv("GOOGLE_CLIENT_SECRET")
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
+    "https://www.googleapis.com/auth/userinfo.email",
+    "https://www.googleapis.com/auth/userinfo.profile",
+    "openid",
+]
+SOCIAL_AUTH_GOOGLE_OAUTH2_EXTRA_DATA = ["first_name", "last_name"]
 
 # SPECTACULAR_SETTINGS = {
 #     "TITLE": "Electronic Banking API",
