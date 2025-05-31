@@ -28,6 +28,7 @@ class Profile(TimeStappedModel):
         PLUMBER = ("plumber", _("Plumber"))
         CIVIL_SERVANT = ("civil_servant", _("Civil Servant"))
         TENANT = ("tenant", _("Tenant"))
+        SOFTWARE_ENGINEER = ("software engineer", _("Software Engineer"))
 
     user = models.OneToOneField(
         User,
