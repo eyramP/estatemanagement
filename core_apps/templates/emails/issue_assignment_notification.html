@@ -1,0 +1,16 @@
+{% extends "emails/base.html" %}
+
+{% block title %} Issue Assignmenet{% endblock title %}
+
+{% block content %}
+<p>Dear {{ issue.assigned_to.get_full_name }},</p>
+<p>A new issue titled <strong>{{ issue.title }}</strong> has been assigned to you.</p>
+<p><strong>Description:</strong> {{ issue.description }}</p>
+<p>
+The affected apartment is <strong>{{ issue.apartment }}</strong>,
+which is currently occupied by the tenant <strong>{{ issue.reported_by.get_full_name }}</strong>
+</p>
+<p>Thank you for your attention to this matter, kindly follow up with this.</p>
+<p>Regards,</p>
+<p>The {{ site_name }} team</p>
+{% endblock content %}

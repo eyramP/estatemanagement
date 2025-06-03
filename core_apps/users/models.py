@@ -41,6 +41,6 @@ class User(AbstractUser):
 
     @property
     def get_full_name(self) -> str:
-        full_name = f"{self.first_name} {self.last_login}"
+        full_name = f"{self.first_name} {self.last_name}"
         return full_name.strip()
 
