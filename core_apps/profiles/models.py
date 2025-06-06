@@ -5,6 +5,7 @@ from django.utils.translation import gettext_lazy as _
 from django_countries.fields import CountryField
 from phonenumber_field.modelfields import PhoneNumberField
 from django.db import models
+from django.db.models import Avg
 
 from core_apps.common.models import TimeStappedModel
 
@@ -21,12 +22,13 @@ class Profile(TimeStappedModel):
         FEMALE = ("female", _("Female"))
 
     class Occupation(models.TextChoices):
-        EMPLOYED = ("employed", _("Employed"))
-        UNEMPLOYED = ("unemployed", _("Unemployed"))
         CARPENTER = ("carpenter", _("Carpenter"))
+        ROOFER = ("roofer", _("Roofer"))
+        MASON = ("mason", _("Mason"))
         ELECTRICIAN = ("electrician", _("Electrician"))
         PLUMBER = ("plumber", _("Plumber"))
         CIVIL_SERVANT = ("civil_servant", _("Civil Servant"))
+        PAINTER = ("painter", _("Painter"))
         TENANT = ("tenant", _("Tenant"))
         SOFTWARE_ENGINEER = ("software engineer", _("Software Engineer"))
 
@@ -93,3 +95,7 @@ class Profile(TimeStappedModel):
     def save(self, *args, **kwargs):
         self.update_reputation()
         super().save()
+
+    def get_average_rating(self):
+        average = self.user.received_ratings.aggregate(Avg("rating"))["rating__avg"]
+        return average if average is not None else 0.0
