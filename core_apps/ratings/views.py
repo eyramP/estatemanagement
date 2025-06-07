@@ -65,7 +65,7 @@ class RatingCreateView(generics.CreateAPIView):
             and rating_user == rated_user
         ):
             raise PermissionDenied("A technitian cannot review themselves.")
-        
+
         if (
             rating_user_occupation in allow_occupations
             and rated_user_occupation == Profile.Occupation.TENANT

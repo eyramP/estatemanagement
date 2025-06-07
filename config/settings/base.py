@@ -40,7 +40,8 @@ THIRD_PARTY_APPS = [
     'django_filters',
     'djcelery_email',
     'django_celery_beat',
-    'rest_framework_simplejwt.token_blacklist'
+    'rest_framework_simplejwt.token_blacklist',
+    'taggit',
 ]
 
 LOCAL_APPS = [
