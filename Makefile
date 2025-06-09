@@ -19,6 +19,9 @@ prune_volumes:
 logs_api:
 	docker compose -f local.yml logs api
 
+logs_client:
+	docker compose -f local.yml logs client
+
 logs_flower:
 	docker compose -f local.yml logs flower
 
