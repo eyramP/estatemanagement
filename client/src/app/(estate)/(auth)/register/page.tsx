@@ -1,4 +1,4 @@
-import { AuthFormHeader } from "@/components/forms/auth";
+import { AuthFormHeader, RegisterForm } from "@/components/forms/auth";
 
 export default function RegisterPage() {
     return (
@@ -9,6 +9,14 @@ export default function RegisterPage() {
             linkText="Login Here"
             linkHref="/login"
           />
+          <div className="mt-7 sm:mx-auto sm:w-full sm:max-w-[480px]">
+            <div
+            className="bg-slate-200 dark:bg-deepBlueGrey
+            rounded-xl px-6 py-12 shadow sm:rounded-lg md:rounded-3xl"
+            >
+              <RegisterForm />
+            </div>
+          </div>
       </div>
     );
 }
