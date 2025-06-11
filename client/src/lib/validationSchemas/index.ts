@@ -7,7 +7,7 @@ export type {TPasswordResetConfirmSchema} from "./PasswordResetConfirmSchema"
 export {passwordResetRequestSchema} from "./PasswordResetRequestSchema"
 export type {TPasswordResetRequestSchema} from "./PasswordResetRequestSchema"
 
-export {registerUserSchema} from "./registerSchema"
-export type {TRegisterUserSchema} from "./registerSchema"
+export {registerUserSchema} from "./RegisterSchema"
+export type {TRegisterUserSchema} from "./RegisterSchema"
 
 
