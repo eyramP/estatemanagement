@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { registerUserSchema, TRegisterUserSchema } from "@/lib/validationSchemas";
 import { extractErrorMessage } from "@/utils";
 import { toast } from "react-toastify"
-import {FormFieldComponent} from "@/components/forms/FormFieldComponents";
+import {FormFieldComponent} from "@/components/forms/FormFieldComponent";
 import { Button } from "@/components/ui/button";
 import Spinner from "@/components/shared/spinner";
 
