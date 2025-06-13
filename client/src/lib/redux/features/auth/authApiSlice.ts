@@ -1,5 +1,11 @@
 import { baseApiSlice } from "@/lib/redux/features/api/baseApiSlice";
-import { ActivateUserData, LoginResponse, LoginUserData, RegisterUserData, RegisterUserResponse, ResetPasswordConfirmData, ResetPasswordData, SocialAuthArgs, SocialAuthResponse, UserResponse } from "@/types";
+import {
+    ActivateUserData, LoginResponse,
+    LoginUserData, RegisterUserData,
+    RegisterUserResponse, ResetPasswordConfirmData,
+     ResetPasswordData, SocialAuthArgs,
+     SocialAuthResponse, UserResponse
+} from "@/types";
 
 
 export const authApiSlice = baseApiSlice.injectEndpoints({
