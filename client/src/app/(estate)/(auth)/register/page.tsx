@@ -1,6 +1,10 @@
+"use client"
 import { AuthFormHeader, RegisterForm } from "@/components/forms/auth";
+import OauthButtons from "@/components/shared/OauthButtons";
+import { useRedirectIfAuthenticated } from "@/hooks";
 
 export default function RegisterPage() {
+  useRedirectIfAuthenticated()
     return (
       <div>
           <AuthFormHeader
@@ -15,6 +19,12 @@ export default function RegisterPage() {
             rounded-xl px-6 py-12 shadow sm:rounded-lg md:rounded-3xl"
             >
               <RegisterForm />
+              <div className="flex-center mt-5 space-x-2">
+                <div className="bg-richBlack dark:bg-platinum h-px flex-1"></div>
+                <span className="dark:text-platinum py-2 text-sm">Or</span>
+                <div className="bg-richBlack dark:bg-platinum h-px flex-1"></div>
+              </div>
+              <OauthButtons />
             </div>
           </div>
       </div>
