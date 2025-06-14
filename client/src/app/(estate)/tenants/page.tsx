@@ -1,14 +1,15 @@
 "use client"
+import ProtectedRoute from "@/components/shared/ProtectedRoutes"
 import Spinner from "@/components/shared/spinner"
 import { useGetAllUsersQuery } from "@/lib/redux/features/users/usersApiSlice"
 
-export default function TenantsPage() {
+function TenantsPageContent() {
     const {data, isLoading} = useGetAllUsersQuery({})
 
     if (isLoading){
         return (
             <div className="flex-center pt-32">
-                <Spinner size="xl"></Spinner>
+                <Spinner size="xl" />
             </div>
         )
     }
@@ -28,4 +29,12 @@ export default function TenantsPage() {
         )}
     </div>
   )
+}
+
+export default function TenantsPage(){
+    return (
+        <ProtectedRoute>
+            <TenantsPageContent />
+        </ProtectedRoute>
+    )
 }
