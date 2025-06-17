@@ -10,4 +10,7 @@ export type {TPasswordResetRequestSchema} from "./PasswordResetRequestSchema"
 export {registerUserSchema} from "./RegisterSchema"
 export type {TRegisterUserSchema} from "./RegisterSchema"
 
+export {profileSchema} from "./ProfileSchema"
+export type {TProfileSchema} from "./ProfileSchema"
+
 

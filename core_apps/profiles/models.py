@@ -22,15 +22,22 @@ class Profile(TimeStappedModel):
         FEMALE = ("female", _("Female"))
 
     class Occupation(models.TextChoices):
-        CARPENTER = ("carpenter", _("Carpenter"))
-        ROOFER = ("roofer", _("Roofer"))
-        MASON = ("mason", _("Mason"))
-        ELECTRICIAN = ("electrician", _("Electrician"))
-        PLUMBER = ("plumber", _("Plumber"))
-        CIVIL_SERVANT = ("civil_servant", _("Civil Servant"))
-        PAINTER = ("painter", _("Painter"))
-        TENANT = ("tenant", _("Tenant"))
-        SOFTWARE_ENGINEER = ("software engineer", _("Software Engineer"))
+        Mason = (
+            "mason", _("Mason"),)
+        Carpenter = (
+            "carpenter", _("Carpenter"),)
+        Plumber = (
+            "plumber", _("Plumber"),)
+        Roofer = (
+            "roofer", _("Roofer"),)
+        Painter = (
+            "painter", _("Painter"), )
+        Electrician = (
+            "electrician", _("Electrician"),)
+        HVAC = (
+            "hvac", _("HVAC"),)
+        TENANT = (
+            "tenant", _("Tenant"),)
 
     user = models.OneToOneField(
         User,

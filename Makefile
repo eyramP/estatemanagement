@@ -19,14 +19,17 @@ prune_volumes:
 logs_api:
 	docker compose -f local.yml logs api
 
+logs_redis:
+	docker compose -f local.yml logs redis
+
 logs_client:
 	docker compose -f local.yml logs client
 
 logs_flower:
 	docker compose -f local.yml logs flower
 
-logs_celery:
-	docker compose -f local.yml logs celeryworker
+logs_db:
+	docker compose -f local.yml logs postgres
 
 ebanking_config:
 	docker compose -f local.yml config

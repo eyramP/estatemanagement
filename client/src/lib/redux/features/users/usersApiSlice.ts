@@ -38,14 +38,14 @@ export const usersApiSlice = baseApiSlice.injectEndpoints({
         }),
 
         getUserProfile: builder.query<ProfileResponse, void>({
-            query: () => "/profiles/user/my-profile",
+            query: () => "/profiles/user/my-profile/",
             providesTags: ["User"]
         }),
 
         updateUserProfile: builder.mutation<ProfileData, ProfileData>({
             query:(formData) => ({
-                url:"/profiles/user/update",
-                method: "Path",
+                url:"/profiles/user/update/",
+                method: "PATCH",
                 body: formData
             }),
             invalidatesTags: ["User"]

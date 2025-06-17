@@ -56,7 +56,6 @@ class UpdateProfileSerializer(serializers.ModelSerializer):
     first_name = serializers.CharField(source="user.first_name")
     last_name = serializers.CharField(source="user.last_name")
     username = serializers.CharField(source="user.username")
-    full_name = serializers.CharField(source="user.get_full_name")
     country_of_origin = CountryField(name_only=True)
 
     class Meta:
@@ -65,7 +64,6 @@ class UpdateProfileSerializer(serializers.ModelSerializer):
             "first_name",
             "last_name",
             "username",
-            "full_name",
             "gender",
             "country_of_origin",
             "city_of_origin",
