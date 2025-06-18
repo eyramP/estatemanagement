@@ -2,7 +2,8 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Playball } from "next/font/google";
 
 const initialState = {
-    searchTerm: ""
+    searchTerm: "",
+    page: 1,
 }
 
 const userSlice = createSlice({
@@ -10,10 +11,13 @@ const userSlice = createSlice({
     initialState,
     reducers: {
         setSearchTerm: (state, action: PayloadAction<string>) => {
-            state.searchTerm = action.payload
-        }
-    }
-})
+            state.searchTerm = action.payload;
+        },
+        setCurrentPage: (state, action: PayloadAction<number>) => {
+            state.page = action.payload;
+        },
+    },
+});
 
-export const {setSearchTerm} = userSlice.actions;
+export const {setSearchTerm, setCurrentPage} = userSlice.actions;
 export default userSlice.reducer;
