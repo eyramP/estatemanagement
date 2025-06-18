@@ -10,11 +10,13 @@ import { BrickWall, Briefcase, Building, CalendarDays, Map, School } from "lucid
 import { formatDate } from "@/utils"
 import ProtectedRoute from "../shared/ProtectedRoutes"
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { useAppSelector } from "@/lib/redux/hooks/typedHooks";
 
 
 function TenantsCardContent(){
     const {theme} = useTheme()
-    const {data, isLoading} = useGetAllUsersQuery({})
+    const searchTerm = useAppSelector((state) => state.user.searchTerm);
+    const {data, isLoading} = useGetAllUsersQuery({ searchTerm });
 
     if (isLoading){
         <div className="flex-center pt-32">
@@ -33,7 +35,7 @@ function TenantsCardContent(){
                 <Card key={tenant.id}>
                     <CardContent className="rounded-lg p-4">
                     <CardHeader className="flex-col-center text-center">
-                    <Avatar className="border-pumpkin mx-auto size-32 overflow-hidden rounded-full border-4 object-cover">
+                    <Avatar className="border-slate-400 mx-auto size-28 overflow-hidden rounded-full border-2 object-cover">
                         <AvatarImage className="rounded-full" alt="User profile avatar" src={
                             tenant.avatar || (
                                 theme === "dark"
@@ -41,8 +43,7 @@ function TenantsCardContent(){
                                 : "/assets/icons/user-profile-light-circle.svg"
                             )
                         }
-                        width={100}
-                        height={100}/>
+                        />
                     </Avatar>
                     <CardTitle className="h3-semibold font-robotoSlab dark:text-platinum">
                         {tenant.full_name}
