@@ -48,7 +48,7 @@ FetchBaseQueryError> = async(args, api, extraOptions) => {
 export const baseApiSlice = createApi({
     reducerPath:"api",
     baseQuery: baseQueryWithAuth,
-    tagTypes: ["User"],
+    tagTypes: ["User", "Apartment"],
     refetchOnFocus: true,
     refetchOnMountOrArgChange: true,
     endpoints: (builder) => ({}),
