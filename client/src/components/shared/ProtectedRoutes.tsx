@@ -4,7 +4,7 @@ import { useAppDispatch } from "@/lib/redux/hooks/typedHooks";
 import {getCookie} from "cookies-next";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import Spinner from "@/components/shared/spinner";
+import Spinner from "@/components/shared/Spinner";
 
 function ProtectedRoute({children}: {children:React.ReactNode}){
     const dispatch = useAppDispatch()

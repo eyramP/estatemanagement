@@ -9,7 +9,7 @@ import { toast } from "react-toastify"
 import { FormFieldComponent } from "@/components/forms/FormFieldComponent"
 import { MailIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import Spinner from "@/components/shared/spinner"
+import Spinner from "@/components/shared/Spinner"
 
 export default function PasswordResetRequestForm() {
     const [resetPasswordRequest, {isLoading}] = useResetPasswordRequestMutation()

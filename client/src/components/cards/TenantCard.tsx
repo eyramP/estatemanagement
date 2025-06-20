@@ -1,7 +1,7 @@
 "use client";
 import { useGetAllUsersQuery } from "@/lib/redux/features/users/usersApiSlice"
 import { useTheme } from "next-themes"
-import Spinner from "../shared/spinner"
+import Spinner from "../shared/Spinner"
 import UserSearch from "../shared/search/UsersSearch"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card"
 import Image from "next/image"

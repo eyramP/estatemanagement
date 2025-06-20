@@ -12,7 +12,7 @@ import { setAuth } from "@/lib/redux/features/auth/authSlice";
 import { FormFieldComponent } from "@/components/forms/FormFieldComponent";
 import { MailIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Spinner from "@/components/shared/spinner";
+import Spinner from "@/components/shared/Spinner";
 
 export default function LoginForm() {
 	const [loginUser, { isLoading }] = useLoginUserMutation();

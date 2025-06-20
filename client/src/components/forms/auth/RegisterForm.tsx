@@ -10,7 +10,7 @@ import { extractErrorMessage } from "@/utils";
 import { toast } from "react-toastify"
 import {FormFieldComponent} from "@/components/forms/FormFieldComponent";
 import { Button } from "@/components/ui/button";
-import Spinner from "@/components/shared/spinner";
+import Spinner from "@/components/shared/Spinner";
 
 export default function RegisterForm() {
     const [registerUser, {isLoading}] = useRegisterUserMutation();

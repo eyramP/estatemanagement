@@ -1,7 +1,7 @@
 "use client"
 
 import { useGetUserProfileQuery } from "@/lib/redux/features/users/usersApiSlice"
-import Spinner from "@/components/shared/spinner"
+import Spinner from "@/components/shared/Spinner"
 import { TabsContent } from "@/components/ui/tabs"
 import { ProfileItem } from "./ProfileItem"
 import { BadgeCheck, Briefcase, CalendarDays, Contact, Home, Hotel, Map, MapPinnedIcon, Star, UserRoundCheck } from "lucide-react"

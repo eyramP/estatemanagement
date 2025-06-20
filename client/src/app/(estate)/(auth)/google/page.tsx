@@ -1,6 +1,6 @@
 "use client"
 
-import Spinner from "@/components/shared/spinner";
+import Spinner from "@/components/shared/Spinner";
 import { useSocialAuth } from "@/hooks";
 import { useSocialAuthenticationMutation } from "@/lib/redux/features/auth/authApiSlice";
 import { Suspense } from "react";

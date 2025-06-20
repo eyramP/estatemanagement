@@ -17,7 +17,7 @@ import GenderSelectField from "./GenderSelectField";
 import OccupationSelectField from "./OccupationSelectField";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import Spinner from "@/components/shared/spinner";
+import Spinner from "@/components/shared/Spinner";
 import { Button } from "@/components/ui/button";
 
 export default function EditProfileForm() {
@@ -100,7 +100,6 @@ export default function EditProfileForm() {
 					placeholder="Username"
 					startIcon={<UserCheck2 className="dark:text-babyPowder size-8" />}
 				/>
-
 				<FormFieldComponent
 					label="First Name"
 					name="first_name"
@@ -127,7 +126,6 @@ export default function EditProfileForm() {
 					placeholder="What's your country"
 					startIcon={<Map className="dark:text-babyPowder size-8" />}
 				/>
-
 				<FormFieldComponent
 					label="City of Origin"
 					name="city_of_origin"
@@ -136,7 +134,6 @@ export default function EditProfileForm() {
 					placeholder="City"
 					startIcon={<MapPinnedIcon className="dark:text-babyPowder size-8" />}
 				/>
-
 				<FormFieldComponent
 					label="Bio"
 					name="bio"

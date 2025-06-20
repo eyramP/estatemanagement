@@ -9,7 +9,7 @@ import {toast} from "react-toastify"
 import { extractErrorMessage } from "@/utils"
 import { FormFieldComponent } from "@/components/forms/FormFieldComponent"
 import { Button } from "@/components/ui/button"
-import Spinner from "@/components/shared/spinner"
+import Spinner from "@/components/shared/Spinner"
 
 export default function PasswordResetConfirmForm() {
     const router = useRouter()

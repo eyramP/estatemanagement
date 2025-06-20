@@ -1,5 +1,5 @@
 "use client";
-import { useCreateApartmentMutation } from "@/lib/redux/features/apartment/apartmentApiSlice";
+import { useCreateApartmentMutation } from "@/lib/redux/features/apartment/ApartmentApiSlice";
 import {
 	apartmentCreateSchema,
 	TApartmentCreateSchema,

@@ -26,8 +26,20 @@ type FormFieldComponentsProps<TFieldValues extends FieldValues> = {
 }
 
 export function FormFieldComponent<TFieldValues extends FieldValues>({
-label, name, register, disabled=false, errors, type="text", placeholder,
-required=false, startIcon, endIcon, link, className, isPassword=false, isTextArea=false
+    label,
+    name,
+    register,
+    disabled=false,
+    errors,
+    type="text",
+    placeholder,
+    required=false,
+    startIcon,
+    endIcon,
+    link,
+    className,
+    isPassword=false,
+    isTextArea=false
 }:FormFieldComponentsProps<TFieldValues>) {
     const errorMessage = errors[name]?.message as unknown as string;
 
@@ -54,6 +66,7 @@ required=false, startIcon, endIcon, link, className, isPassword=false, isTextAre
                 type={type}
                 placeholder={placeholder}
                 startIcon={startIcon}
+                disabled={disabled}
                 endIcon={endIcon}
                 className={`dark:text-babyPowder ${className}`}
                 />
