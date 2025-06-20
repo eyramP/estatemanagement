@@ -1,4 +1,4 @@
-import { IssueResponse, MyAssignedIssuesResponse, ReportIssueData, UpdateIssueData, UpdateIssueResponse } from "@/types";
+import { IssueResponse, MyAssignedIssuesResponse, MyIssuesResponse, ReportIssueData, UpdateIssueData, UpdateIssueResponse } from "@/types";
 import { baseApiSlice } from "../api/baseApiSlice";
 
 
@@ -14,24 +14,24 @@ export const issueApiSlice = baseApiSlice.injectEndpoints({
             invalidatesTags:["Issue"]
         }),
 
-        getMyIssues: builder.query<IssueResponse, void>({
-            query: () => "/issue/me/",
+        getMyIssues: builder.query<MyIssuesResponse, void>({
+            query: () => "/issues/me/",
             providesTags: ["Issue"]
         }),
 
         getMyAssignedIssues: builder.query<MyAssignedIssuesResponse, string>({
-            query: () => "/issue/assigned/",
+            query: () => "/issues/assigned/",
             providesTags: ["Issue"]
         }),
 
         getSingleIssue: builder.query<MyAssignedIssuesResponse, string>({
-            query: (issueId) => `/issue/${issueId}/`,
+            query: (issueId) => `/issues/${issueId}/`,
             providesTags: ["Issue"]
         }),
 
         updateIssue: builder.mutation<UpdateIssueResponse, UpdateIssueData>({
             query: ({issueId, ...statusData}) => ({
-                url: `/issue/update/${issueId}/`,
+                url: `/issues/update/${issueId}/`,
                 method: "PATCH",
                 body: statusData
             }),
@@ -40,7 +40,7 @@ export const issueApiSlice = baseApiSlice.injectEndpoints({
 
         DeleteIssue: builder.mutation<void, string>({
             query: (issueId) => ({
-                url: `/issue/delete/${issueId}/`,
+                url: `/issues/delete/${issueId}/`,
                 method: "DELETE",
             }),
             invalidatesTags:["Issue"]

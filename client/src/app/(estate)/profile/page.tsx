@@ -1,5 +1,7 @@
 import About from "@/components/profile/About"
+import AssignedIssues from "@/components/profile/AssignedIssues"
 import Header from "@/components/profile/Header"
+import Issues from "@/components/profile/issues"
 import Posts from "@/components/profile/Posts"
 import ProtectedRoute from "@/components/shared/ProtectedRoutes"
 import { Button } from "@/components/ui/button"
@@ -38,8 +40,11 @@ function ProfilePageContent() {
             <Posts />
 
             {/*////////// Issue tab content /////////*/}
+            <Issues />
             {/*////////// Report tab content /////////*/}
+
             {/*////////// Assigned Issue tab content /////////*/}
+            <AssignedIssues />
 
         </Tabs>
         </div>
