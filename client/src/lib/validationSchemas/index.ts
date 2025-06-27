@@ -22,6 +22,11 @@ export {issueUpdateSchema} from "./IssueUpdateSchema";
 export type {TIssueCreateSchema} from "./IssueCreateSchema";
 export {issueCreateSchema} from "./IssueCreateSchema";
 
+export type {TReportCreateSchema} from "./ReportCreateSchema";
+export {reportCreateSchema} from "./ReportCreateSchema";
+
+
+
 
 
 

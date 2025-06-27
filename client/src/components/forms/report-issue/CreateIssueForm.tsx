@@ -1,7 +1,7 @@
 "use client"
 
 import { useGetMyApartmentQuery } from "@/lib/redux/features/apartment/ApartmentApiSlice";
-import { useReportIssuesMutation } from "@/lib/redux/features/issues/IssueApiSlice";
+
 import { issueCreateSchema, TIssueCreateSchema } from "@/lib/validationSchemas";
 import { extractErrorMessage } from "@/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -16,6 +16,7 @@ import { priorityOptions, statusOptions } from "@/constants";
 import customStyles from "../selectStyles";
 import { Button } from "@/components/ui/button";
 import Spinner from "@/components/shared/Spinner";
+import { useReportIssueMutation } from "@/lib/redux/features/issues/IssueApiSlice";
 
 const ClientOnly = dynamic<{children: React.ReactNode}>(
     () => Promise.resolve(({children}) => <>{children}</>),
@@ -25,7 +26,7 @@ const ClientOnly = dynamic<{children: React.ReactNode}>(
 export default function CreateIssueForm() {
   const {data} = useGetMyApartmentQuery()
   const apartment = data?.apartment
-  const [reportIssue, {isLoading}] = useReportIssuesMutation()
+  const [reportIssue, { isLoading }] = useReportIssueMutation();
   const router = useRouter()
 
   const {register, handleSubmit, control, reset, formState: {errors}} = useForm<TIssueCreateSchema>({
