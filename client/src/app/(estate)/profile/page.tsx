@@ -1,7 +1,7 @@
 import About from "@/components/profile/About"
 import AssignedIssues from "@/components/profile/AssignedIssues"
 import Header from "@/components/profile/Header"
-import Issues from "@/components/profile/issues"
+import Issues from "@/components/profile/Issues"
 import Posts from "@/components/profile/Posts"
 import ProtectedRoute from "@/components/shared/ProtectedRoutes"
 import { Button } from "@/components/ui/button"

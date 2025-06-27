@@ -240,7 +240,7 @@ export interface MyIssuesResponse {
 }
 
 export interface MyAssignedIssuesResponse {
-	assigned_issues: {
+	issues: {
 		count: number;
 		next?: string;
 		previous?: string;

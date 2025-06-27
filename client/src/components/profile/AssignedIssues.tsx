@@ -4,18 +4,28 @@ import { useGetMyAssignedIssuesQuery } from "@/lib/redux/features/issues/IssueAp
 import Spinner from "@/components/shared/Spinner";
 import { TabsContent } from "../ui/tabs";
 import IssueCard from "../cards/IssueCard";
+import { extractErrorMessage } from "@/utils";
 
 export default function AssignedIssues() {
-    const {data: assignedIssues, isLoading} = useGetMyAssignedIssuesQuery("")
-    const myAssignedIssues = assignedIssues?.assigned_issues
+    const {data: assignedIssues, isLoading, error} = useGetMyAssignedIssuesQuery()
+    const myAssignedIssues = assignedIssues?.issues
 
     if (isLoading){
-            return (
-                <div className="flex-center pt-32">
-                    <Spinner />
-                </div>
-            );
-        }
+        return (
+            <div className="flex-center pt-32">
+                <Spinner />
+            </div>
+        );
+    }
+
+    if (error) {
+        const errorMessage = extractErrorMessage(error)
+        return (
+            <p>
+                {errorMessage}
+            </p>
+        )
+    }
 
   return (
     <div>
