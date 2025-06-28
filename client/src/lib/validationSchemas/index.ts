@@ -25,6 +25,11 @@ export {issueCreateSchema} from "./IssueCreateSchema";
 export type {TReportCreateSchema} from "./ReportCreateSchema";
 export {reportCreateSchema} from "./ReportCreateSchema";
 
+export type {TReplySchema} from "./PostReplySchema";
+export {replySchema} from "./PostReplySchema"
+
+
+
 
 
 
