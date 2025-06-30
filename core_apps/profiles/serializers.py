@@ -37,10 +37,13 @@ class ProfileSerializer(serializers.ModelSerializer):
         ]
 
     def get_avatar(self, obj: Profile) -> str | None:
-        try:
+        if obj.avatar:
             return obj.avatar.url
-        except AttributeError:
-            return None
+        return None
+        # try:
+        #     return obj.avatar.url
+        # except AttributeError:
+        #     return None
 
     def get_average_rating(self, obj: Profile):
         return obj.get_average_rating()

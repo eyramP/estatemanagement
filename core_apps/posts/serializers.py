@@ -153,8 +153,13 @@ class BasePostSerializer(serializers.ModelSerializer):
         ]
 
     def get_avatar(self, obj) -> str | None:
-        if obj.author.profile.avatar.url:
-            return obj.author.profile.avatar.url
+        # if obj.author.profile.avatar.url:
+        #     return obj.author.profile.avatar.url
+        # return None
+
+        avatar = getattr(obj.author.profile, "avatar", None)
+        if avatar:
+            return avatar.url
         return None
 
     def get_is_bookmarked(self, obj) -> bool:

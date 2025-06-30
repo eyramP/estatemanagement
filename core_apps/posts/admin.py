@@ -19,7 +19,7 @@ class PostAdmin(admin.ModelAdmin):
         views = ContentView.objects.filter(
             content_type=content_type,
             object_id=obj.pkid
-        )
+        ).count()
         return views
 
     def get_queryset(self, request):
