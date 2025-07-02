@@ -29,7 +29,7 @@ export const postApiSlice = baseApiSlice.injectEndpoints({
             providesTags: ["Post"],
         }),
 
-        getSinglePost: builer.query<MyPostsResponse, void>({
+        getSinglePost: builer.query<PostResponse, string>({
             query: (postSlug) => `/posts/${postSlug}/`,
             providesTags: ["Post"],
         }),
